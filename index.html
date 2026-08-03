@@ -503,7 +503,6 @@
 
 <!-- ══ MOBILE MENU ══ -->
 <div id="mob-menu">
-  <button class="mob-close" id="mobClose">✕</button>
   <a href="#hero" onclick="closeMob()">Accueil</a>
   <a href="#services" onclick="closeMob()">Prestations</a>
   <a href="#avis" onclick="closeMob()">Avis clients</a>
@@ -970,8 +969,9 @@
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), {passive:true});
 
   // ── Mobile menu
-  document.getElementById('burger').addEventListener('click', () => document.getElementById('mob-menu').classList.add('open'));
-  document.getElementById('mobClose').addEventListener('click', closeMob);
+  document.getElementById('burger').addEventListener('click', () => {
+    document.getElementById('mob-menu').classList.toggle('open');
+  });
   function closeMob() { document.getElementById('mob-menu').classList.remove('open'); }
 
   // ── Scroll reveal
