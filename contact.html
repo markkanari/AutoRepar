@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nous Contacter – AutoRepar Maxéville | Devis & Rendez-vous Auto</title>
+  <meta name="description" content="Contactez AutoRepar à Maxéville pour un devis, une prise de rendez-vous ou un renseignement. Réponse rapide via WhatsApp. Garage auto proche de Nancy, 54320.">
+  <meta name="keywords" content="contact garage Maxéville, devis réparation auto Nancy, prise rendez-vous garage 54320, AutoRepar contact">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #070707;
+      --bg-2:       #0d0d0d;
+      --surface:    #111111;
+      --surface-2:  #1a1a1a;
+      --gold:       #C9A84C;
+      --gold-light: #E8C970;
+      --gold-subtle:rgba(201,168,76,0.07);
+      --cream:      #F0EAD6;
+      --text:       #C8BAA0;
+      --text-muted: #6A5A3A;
+      --border:     rgba(201,168,76,0.1);
+      --border-h:   rgba(201,168,76,0.32);
+      --fd:         'Cinzel', serif;
+      --fb:         'Raleway', sans-serif;
+      --nav-h:      76px;
+      --r:          3px;
+      --ease:       0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--fb); line-height: 1.7; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAVBAR ── */
+    #nav {
+      position: fixed; top:0; left:0; right:0; z-index:1000;
+      height: var(--nav-h);
+      background: rgba(7,7,7,0.96);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; padding: 0 2.5rem;
+    }
+    .nav-wrap { max-width:1200px; width:100%; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo { height: 52px; }
+    .nav-links { display:flex; align-items:center; gap:2rem; list-style:none; }
+    .nav-links a { font-size:.78rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--text); transition:color var(--ease); }
+    .nav-links a:hover { color:var(--gold-light); }
+    .nav-call {
+      padding:.55rem 1.2rem; border:1px solid rgba(201,168,76,0.4);
+      color:var(--gold) !important; border-radius:var(--r);
+      display:inline-flex; align-items:center; gap:.4rem;
+      transition:background var(--ease), color var(--ease);
+      font-size:.75rem !important; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+    }
+    .nav-call:hover { background:var(--gold); color:var(--bg) !important; }
+    .burger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+    .burger span { display:block; width:24px; height:1.5px; background:var(--gold); }
+
+    /* ── HERO COMPACT ── */
+    #hero-contact {
+      padding-top: calc(var(--nav-h) + 4rem);
+      padding-bottom: 2rem;
+      text-align: center;
+      position: relative;
+    }
+    #hero-contact::before {
+      content:''; position:absolute; top:var(--nav-h); left:0; right:0; height:1px;
+      background:linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .label {
+      font-size:.68rem; font-weight:600; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:1rem;
+      display:flex; align-items:center; justify-content:center; gap:.75rem;
+    }
+    .label::before,.label::after { content:''; width:28px; height:1px; background:var(--gold); opacity:.6; }
+    .page-title { font-family:var(--fd); font-size:clamp(1.8rem,4vw,2.8rem); color:var(--cream); margin-bottom:.75rem; }
+    .page-sub { font-size:.95rem; color:var(--text-muted); font-weight:300; max-width:480px; margin:0 auto; }
+
+    /* ── DEUX COLONNES ── */
+    .contact-page {
+      max-width: 1100px;
+      margin: 3rem auto 5rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* ── COLONNE GAUCHE : infos ── */
+    .aside-title { font-family:var(--fd); font-size:1.1rem; color:var(--cream); margin-bottom:1.5rem; letter-spacing:.05em; }
+
+    .call-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      transition: border-color var(--ease);
+    }
+    .call-card:hover { border-color: var(--border-h); }
+
+    .call-label {
+      font-size:.65rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:.75rem;
+    }
+    .call-number {
+      font-family:var(--fd); font-size:1.4rem; color:var(--cream);
+      display:flex; align-items:center; gap:.6rem; margin-bottom:.5rem;
+    }
+    .call-number svg { width:18px; height:18px; color:var(--gold); }
+    .call-desc { font-size:.8rem; color:var(--text-muted); font-weight:300; }
+
+    .btn-call {
+      display:flex; align-items:center; justify-content:center; gap:.5rem;
+      width:100%; padding:.8rem;
+      background:var(--gold); color:var(--bg);
+      font-family:var(--fb); font-size:.78rem; font-weight:700;
+      letter-spacing:.12em; text-transform:uppercase;
+      border-radius:var(--r); margin-top:1rem;
+      transition:background var(--ease), transform var(--ease);
+    }
+    .btn-call:hover { background:var(--gold-light); transform:translateY(-1px); }
+
+    .horaires-box { margin-top:1.5rem; }
+    .h-title { font-family:var(--fd); font-size:.85rem; color:var(--cream); margin-bottom:1rem; letter-spacing:.04em; }
+    .h-row { display:flex; justify-content:space-between; padding:.55rem 0; border-bottom:1px solid var(--border); font-size:.82rem; }
+    .h-row:last-child { border:none; }
+    .h-day { color:var(--text-muted); }
+    .h-time { color:var(--gold); font-family:var(--fd); font-size:.76rem; letter-spacing:.03em; }
+    .h-off { color:var(--text-muted); font-style:italic; font-size:.76rem; }
+
+    /* ── COLONNE DROITE : formulaire ── */
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 2.5rem;
+    }
+
+    .form-title { font-family:var(--fd); font-size:1.05rem; color:var(--cream); margin-bottom:.5rem; letter-spacing:.04em; }
+    .form-sub { font-size:.82rem; color:var(--text-muted); font-weight:300; margin-bottom:2rem; }
+
+    .form-group { margin-bottom:1.25rem; }
+    .form-row { display:grid; gap:1rem; margin-bottom:1.25rem; }
+    .form-row.col2 { grid-template-columns:1fr 1fr; }
+    .form-row.col3 { grid-template-columns:1fr 1fr 1fr; }
+
+    label {
+      display:block; font-size:.7rem; font-weight:600;
+      letter-spacing:.12em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:.45rem;
+    }
+
+    input, select, textarea {
+      width:100%; padding:.7rem 1rem;
+      background:var(--surface-2); border:1px solid var(--border);
+      color:var(--cream); font-family:var(--fb); font-size:.88rem; font-weight:400;
+      border-radius:var(--r); outline:none;
+      transition:border-color var(--ease), box-shadow var(--ease);
+      appearance:none; -webkit-appearance:none;
+    }
+    input::placeholder, textarea::placeholder { color:var(--text-muted); font-weight:300; }
+    input:focus, select:focus, textarea:focus {
+      border-color:var(--gold);
+      box-shadow:0 0 0 3px rgba(201,168,76,0.08);
+    }
+    select { cursor:pointer; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C9A84C' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right .9rem center; padding-right:2.5rem; }
+    select option { background:var(--surface-2); color:var(--cream); }
+    textarea { resize:vertical; min-height:100px; line-height:1.6; }
+
+    /* Champs conditionnels */
+    .conditional { display:none; }
+    .conditional.show { display:block; }
+
+    /* Séparateur */
+    .form-divider {
+      height:1px; background:var(--border);
+      margin:1.75rem 0;
+    }
+
+    /* Bouton WhatsApp */
+    .btn-whatsapp {
+      display:flex; align-items:center; justify-content:center; gap:.75rem;
+      width:100%; padding:1.1rem;
+      background:#25D366; color:#fff;
+      font-family:var(--fb); font-size:.88rem; font-weight:700;
+      letter-spacing:.1em; text-transform:uppercase;
+      border:none; border-radius:var(--r); cursor:pointer;
+      transition:background var(--ease), transform var(--ease), box-shadow var(--ease);
+      margin-top:1.5rem;
+    }
+    .btn-whatsapp:hover {
+      background:#1ebe5d;
+      transform:translateY(-2px);
+      box-shadow:0 8px 24px rgba(37,211,102,0.25);
+    }
+    .btn-whatsapp svg { width:22px; height:22px; flex-shrink:0; }
+    .wa-note { font-size:.72rem; color:var(--text-muted); text-align:center; margin-top:.75rem; font-weight:300; }
+
+    /* ── FOOTER ── */
+    #footer { background:var(--surface); border-top:1px solid var(--border); padding:2rem 2rem; }
+    .foot-wrap { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; }
+    .foot-logo { height:38px; }
+    .foot-txt { font-size:.75rem; color:var(--text-muted); text-align:center; }
+    .foot-link { font-size:.75rem; color:var(--text-muted); transition:color var(--ease); }
+    .foot-link:hover { color:var(--gold); }
+
+    /* Mobile menu */
+    #mob-menu {
+      display:none; position:fixed; inset:0; z-index:999;
+      background:rgba(7,7,7,.98); backdrop-filter:blur(20px);
+      flex-direction:column; align-items:center; justify-content:center; gap:1.75rem;
+    }
+    #mob-menu.open { display:flex; }
+    #mob-menu a { font-family:var(--fd); font-size:1rem; color:var(--cream); letter-spacing:.08em; transition:color var(--ease); }
+    #mob-menu a:hover { color:var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px) {
+      .contact-page { grid-template-columns:1fr; gap:2.5rem; }
+    }
+    @media(max-width:768px) {
+      .nav-links { display:none; }
+      .burger { display:flex; }
+      .form-row.col3 { grid-template-columns:1fr 1fr; }
+    }
+    @media(max-width:480px) {
+      .form-row.col2, .form-row.col3 { grid-template-columns:1fr; }
+      .form-card { padding:1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="nav">
+  <div class="nav-wrap">
+    <a href="index.html"><img src="logo-transparent.webp" alt="AutoRepar" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="index.html#services">Prestations</a></li>
+      <li><a href="index.html#avis">Avis clients</a></li>
+      <li>
+        <a href="tel:+33695590093" class="nav-call">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 12 19.79 19.79 0 011.92 3.47 2 2 0 013.9 1.27h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9a16 16 0 006.29 6.29l.38-.67a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Appeler
+        </a>
+      </li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ══ MOBILE MENU ══ -->
+<div id="mob-menu">
+  <a href="index.html" onclick="closeMob()">Accueil</a>
+  <a href="index.html#services" onclick="closeMob()">Prestations</a>
+  <a href="index.html#avis" onclick="closeMob()">Avis clients</a>
+  <a href="tel:+33695590093" class="btn-call" onclick="closeMob()">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 12 19.79 19.79 0 011.92 3.47 2 2 0 013.9 1.27h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9a16 16 0 006.29 6.29l.38-.67a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    Appeler maintenant
+  </a>
+</div>
+
+<!-- ══ HERO COMPACT ══ -->
+<section id="hero-contact">
+  <div class="container" style="max-width:1100px;margin:0 auto;padding:0 2rem;">
+    <p class="label">Restons en contact</p>
+    <h1 class="page-title">Contactez AutoRepar</h1>
+    <p class="page-sub">Un devis, un rendez-vous, une question ? Remplissez le formulaire et recevez une réponse directement sur WhatsApp.</p>
+  </div>
+</section>
+
+<!-- ══ CONTENU ══ -->
+<div class="contact-page">
+
+  <!-- COLONNE GAUCHE -->
+  <aside>
+    <h2 class="aside-title">Nous appeler</h2>
+
+    <div class="call-card">
+      <p class="call-label">Ligne directe</p>
+      <div class="call-number">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 12 19.79 19.79 0 011.92 3.47 2 2 0 013.9 1.27h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9a16 16 0 006.29 6.29l.38-.67a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        06 95 59 00 93
+      </div>
+      <p class="call-desc">Pour une urgence ou une question rapide, appelez-nous directement.</p>
+      <a href="tel:+33695590093" class="btn-call">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 12 19.79 19.79 0 011.92 3.47 2 2 0 013.9 1.27h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9a16 16 0 006.29 6.29l.38-.67a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Appeler maintenant
+      </a>
+    </div>
+
+    <div class="horaires-box">
+      <p class="h-title">Horaires d'ouverture</p>
+      <div class="h-row"><span class="h-day">Lundi – Vendredi</span><span class="h-time">10h–12h | 13h–19h</span></div>
+      <div class="h-row"><span class="h-day">Samedi</span><span class="h-time">10h–12h | 13h–19h</span></div>
+      <div class="h-row"><span class="h-day">Dimanche</span><span class="h-off">Fermé</span></div>
+    </div>
+  </aside>
+
+  <!-- COLONNE DROITE -->
+  <div>
+    <div class="form-card">
+      <h2 class="form-title">Nous contacter</h2>
+      <p class="form-sub">Devis, rendez-vous, renseignement — remplissez le formulaire et envoyez-le directement sur WhatsApp.</p>
+
+      <form id="contactForm" onsubmit="sendWhatsApp(event)">
+
+        <!-- Identité -->
+        <div class="form-row col2">
+          <div>
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" placeholder="Votre prénom" required>
+          </div>
+          <div>
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" placeholder="Votre nom" required>
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- Véhicule -->
+        <div class="form-row col2">
+          <div>
+            <label for="marque">Marque</label>
+            <input type="text" id="marque" placeholder="Ex : Renault" required>
+          </div>
+          <div>
+            <label for="modele">Modèle</label>
+            <input type="text" id="modele" placeholder="Ex : Clio" required>
+          </div>
+        </div>
+
+        <div class="form-row col3">
+          <div>
+            <label for="annee">Année</label>
+            <input type="number" id="annee" placeholder="Ex : 2018" min="1980" max="2026" required>
+          </div>
+          <div>
+            <label for="carburant">Carburant</label>
+            <select id="carburant" required>
+              <option value="" disabled selected>Choisir</option>
+              <option>Essence</option>
+              <option>Diesel</option>
+              <option>Hybride</option>
+              <option>Électrique</option>
+            </select>
+          </div>
+          <div>
+            <label for="km">Kilométrage</label>
+            <input type="text" id="km" placeholder="Ex : 85 000 km" required>
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- Type de demande -->
+        <div class="form-group">
+          <label for="categorie">Type de demande</label>
+          <select id="categorie" required onchange="toggleFields()">
+            <option value="" disabled selected>Sélectionner</option>
+            <option value="devis">Demande de devis</option>
+            <option value="rdv">Prise de rendez-vous</option>
+            <option value="renseignement">Renseignement</option>
+            <option value="depannage">Dépannage urgent</option>
+          </select>
+        </div>
+
+        <!-- Conditionnel : prestation (devis / rdv) -->
+        <div class="form-group conditional" id="field-prestation">
+          <label for="prestation">Prestation souhaitée</label>
+          <select id="prestation">
+            <option value="" disabled selected>Choisir une prestation</option>
+            <option>Révision & Vidange</option>
+            <option>Réparation Mécanique</option>
+            <option>Freinage</option>
+            <option>Climatisation</option>
+            <option>Pneumatiques</option>
+            <option>Diagnostic Électronique</option>
+            <option>Éclairage & Vision</option>
+            <option>Dépannage</option>
+            <option>Lavage Auto</option>
+            <option>Vente & Rachat de Véhicules</option>
+            <option>Autre</option>
+          </select>
+        </div>
+
+        <!-- Conditionnel : description libre (renseignement / dépannage) -->
+        <div class="form-group conditional" id="field-description">
+          <label for="description">Décrivez votre demande</label>
+          <textarea id="description" placeholder="Expliquez votre problème ou votre question en quelques mots..."></textarea>
+        </div>
+
+        <!-- Bouton WhatsApp -->
+        <button type="submit" class="btn-whatsapp">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Envoyer sur WhatsApp
+        </button>
+        <p class="wa-note">Vous serez redirigé vers WhatsApp avec votre message pré-rempli.</p>
+
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer id="footer">
+  <div class="foot-wrap">
+    <img src="logo-transparent.webp" alt="AutoRepar" class="foot-logo">
+    <p class="foot-txt">© 2026 AutoRepar — 41b Rue André Fruchard, 54320 Maxéville</p>
+    <a href="index.html" class="foot-link">← Retour au site</a>
+  </div>
+</footer>
+
+<script>
+  // ── Navbar burger
+  document.getElementById('burger').addEventListener('click', () => {
+    document.getElementById('mob-menu').classList.toggle('open');
+  });
+  function closeMob() { document.getElementById('mob-menu').classList.remove('open'); }
+
+  // ── Logique conditionnelle
+  function toggleFields() {
+    const cat = document.getElementById('categorie').value;
+    const prestation = document.getElementById('field-prestation');
+    const description = document.getElementById('field-description');
+
+    prestation.classList.remove('show');
+    description.classList.remove('show');
+
+    if (cat === 'devis' || cat === 'rdv') {
+      prestation.classList.add('show');
+    } else if (cat === 'renseignement' || cat === 'depannage') {
+      description.classList.add('show');
+    }
+  }
+
+  // ── Génération du message WhatsApp
+  function sendWhatsApp(e) {
+    e.preventDefault();
+
+    const prenom    = document.getElementById('prenom').value.trim();
+    const nom       = document.getElementById('nom').value.trim();
+    const marque    = document.getElementById('marque').value.trim();
+    const modele    = document.getElementById('modele').value.trim();
+    const annee     = document.getElementById('annee').value.trim();
+    const carburant = document.getElementById('carburant').value;
+    const km        = document.getElementById('km').value.trim();
+    const categorie = document.getElementById('categorie').value;
+    const prestation= document.getElementById('prestation').value;
+    const description=document.getElementById('description').value.trim();
+
+    const catLabels = {
+      devis:         'Demande de devis',
+      rdv:           'Prise de rendez-vous',
+      renseignement: 'Renseignement',
+      depannage:     'Dépannage urgent 🚨'
+    };
+
+    let msg = `Bonjour AutoRepar ! 👋\n\n`;
+    msg += `👤 *${prenom} ${nom}*\n\n`;
+    msg += `🚗 *Véhicule :*\n`;
+    msg += `• ${marque} ${modele}\n`;
+    msg += `• Année : ${annee}\n`;
+    msg += `• Carburant : ${carburant}\n`;
+    msg += `• Kilométrage : ${km}\n\n`;
+    msg += `📋 *Demande : ${catLabels[categorie]}*\n`;
+
+    if ((categorie === 'devis' || categorie === 'rdv') && prestation) {
+      msg += `• Prestation : ${prestation}\n`;
+    }
+    if ((categorie === 'renseignement' || categorie === 'depannage') && description) {
+      msg += `• ${description}\n`;
+    }
+
+    msg += `\nMerci !`;
+
+    const encoded = encodeURIComponent(msg);
+    window.open(`https://wa.me/33605520428?text=${encoded}`, '_blank');
+  }
+</script>
+
+</body>
+</html>
