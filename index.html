@@ -448,12 +448,20 @@
     #mob-menu {
       display:none; position:fixed; inset:0; z-index:999;
       background:rgba(7,7,7,.98); backdrop-filter:blur(20px);
-      flex-direction:column; align-items:center; justify-content:center; gap:2.5rem;
+      flex-direction:column; align-items:center; justify-content:center; gap:1.75rem;
     }
     #mob-menu.open { display:flex; }
-    #mob-menu a { font-family:var(--fd); font-size:1.4rem; color:var(--cream); letter-spacing:.08em; transition:color var(--ease); }
+    #mob-menu a { font-family:var(--fd); font-size:1rem; color:var(--cream); letter-spacing:.08em; transition:color var(--ease); }
     #mob-menu a:hover { color:var(--gold); }
-    .mob-close { position:absolute; top:1.5rem; right:2rem; font-size:1.5rem; color:var(--gold); background:none; border:none; cursor:pointer; }
+    .mob-close {
+      position:absolute; top:1.25rem; right:1.5rem;
+      width:40px; height:40px; border-radius:50%;
+      border:1px solid var(--border-h); background:none; cursor:pointer;
+      color:var(--gold); font-size:1.1rem;
+      display:flex; align-items:center; justify-content:center;
+      transition:background var(--ease);
+    }
+    .mob-close:hover { background:var(--gold-subtle); }
 
     /* ── RESPONSIVE ── */
     @media(max-width:1024px){
@@ -484,6 +492,7 @@
 <nav id="nav">
   <div class="nav-wrap">
     <ul class="nav-links">
+      <li><a href="#hero">Accueil</a></li>
       <li><a href="#services">Prestations</a></li>
       <li><a href="#avis">Avis clients</a></li>
       <li><a href="#contact">Horaires</a></li>
@@ -496,6 +505,7 @@
 <!-- ══ MOBILE MENU ══ -->
 <div id="mob-menu">
   <button class="mob-close" id="mobClose">✕</button>
+  <a href="#hero" onclick="closeMob()">Accueil</a>
   <a href="#services" onclick="closeMob()">Prestations</a>
   <a href="#avis" onclick="closeMob()">Avis clients</a>
   <a href="#contact" onclick="closeMob()">Horaires & Contact</a>
