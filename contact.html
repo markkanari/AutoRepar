@@ -523,8 +523,6 @@
 
     const encoded = encodeURIComponent(msg);
     window.open(`https://wa.me/33605520428?text=${encoded}`, '_blank');
-    // Vider le localStorage après envoi
-    FIELDS.forEach(id => localStorage.removeItem('ar_' + id));
   }
 
   // Restaurer les champs au chargement
