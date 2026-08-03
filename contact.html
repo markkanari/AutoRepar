@@ -396,9 +396,9 @@
           </select>
         </div>
 
-        <!-- Conditionnel : description libre (renseignement / dépannage) -->
+        <!-- Conditionnel : description libre -->
         <div class="form-group conditional" id="field-description">
-          <label for="description">Décrivez votre demande</label>
+          <label for="description">Décrivez votre problème / demande</label>
           <textarea id="description" placeholder="Expliquez votre problème ou votre question en quelques mots..."></textarea>
         </div>
 
@@ -444,6 +444,7 @@
 
     if (cat === 'devis' || cat === 'rdv') {
       prestation.classList.add('show');
+      description.classList.add('show');
     } else if (cat === 'renseignement' || cat === 'depannage') {
       description.classList.add('show');
     }
@@ -483,7 +484,7 @@
     if ((categorie === 'devis' || categorie === 'rdv') && prestation) {
       msg += `• Prestation : ${prestation}\n`;
     }
-    if ((categorie === 'renseignement' || categorie === 'depannage') && description) {
+    if (description) {
       msg += `• ${description}\n`;
     }
 
