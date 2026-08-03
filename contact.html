@@ -433,20 +433,52 @@
   });
   function closeMob() { document.getElementById('mob-menu').classList.remove('open'); }
 
+  // ── LocalStorage : sauvegarde & restauration des champs
+  const FIELDS = ['prenom','nom','marque','modele','annee','carburant','km','categorie','prestation','description'];
+
+  function saveFields() {
+    FIELDS.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) localStorage.setItem('ar_' + id, el.value);
+    });
+  }
+
+  function restoreFields() {
+    FIELDS.forEach(id => {
+      const el = document.getElementById(id);
+      const val = localStorage.getItem('ar_' + id);
+      if (el && val) el.value = val;
+    });
+    toggleFields(); // ré-affiche les champs conditionnels selon la catégorie restaurée
+  }
+
+  FIELDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', saveFields);
+    if (el && el.tagName === 'SELECT') el.addEventListener('change', saveFields);
+  });
+
   // ── Logique conditionnelle
   function toggleFields() {
     const cat = document.getElementById('categorie').value;
     const prestation = document.getElementById('field-prestation');
     const description = document.getElementById('field-description');
+    const prestationSel = document.getElementById('prestation');
+    const descriptionTA = document.getElementById('description');
 
     prestation.classList.remove('show');
     description.classList.remove('show');
+    prestationSel.required = false;
+    descriptionTA.required = false;
 
     if (cat === 'devis' || cat === 'rdv') {
       prestation.classList.add('show');
       description.classList.add('show');
+      prestationSel.required = true;
+      descriptionTA.required = true;
     } else if (cat === 'renseignement' || cat === 'depannage') {
       description.classList.add('show');
+      descriptionTA.required = true;
     }
   }
 
@@ -492,7 +524,12 @@
 
     const encoded = encodeURIComponent(msg);
     window.open(`https://wa.me/33605520428?text=${encoded}`, '_blank');
+    // Vider le localStorage après envoi
+    FIELDS.forEach(id => localStorage.removeItem('ar_' + id));
   }
+
+  // Restaurer les champs au chargement
+  restoreFields();
 </script>
 
 </body>
