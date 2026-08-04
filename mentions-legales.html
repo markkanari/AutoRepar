@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentions Légales – AutoRepar Maxéville</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #070707; --bg-2: #0d0d0d; --surface: #111111; --surface-2: #1a1a1a;
+      --gold: #C9A84C; --gold-light: #E8C970; --cream: #F0EAD6;
+      --text: #C8BAA0; --text-muted: #6A5A3A;
+      --border: rgba(201,168,76,0.1); --border-h: rgba(201,168,76,0.32);
+      --fd: 'Cinzel', serif; --fb: 'Raleway', sans-serif;
+      --nav-h: 76px; --r: 3px; --ease: 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--fb); font-weight: 400; line-height: 1.7; min-height: 100vh; }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* NAVBAR */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: var(--nav-h); display: flex; align-items: center; padding: 0 2.5rem;
+      background: rgba(7,7,7,0.96); backdrop-filter: blur(18px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .nav-wrap { max-width: 1200px; width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: flex-end; }
+    .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--text); transition: color var(--ease); position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width var(--ease); }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { padding: .55rem 1.4rem; border: 1px solid var(--gold); color: var(--gold) !important; border-radius: var(--r); transition: background var(--ease), color var(--ease) !important; }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--gold) !important; color: var(--bg) !important; }
+    .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .burger span { display: block; width: 22px; height: 2px; background: var(--gold); border-radius: 2px; transition: all .3s; }
+
+    /* MOBILE MENU */
+    #mob-menu { display: none; flex-direction: column; gap: 0; position: fixed; top: var(--nav-h); left: 0; right: 0; background: rgba(7,7,7,0.98); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); z-index: 999; padding: 1rem 0; }
+    #mob-menu.open { display: flex; }
+    #mob-menu a { padding: .85rem 2.5rem; font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--text); border-bottom: 1px solid var(--border); transition: color var(--ease), background var(--ease); }
+    #mob-menu a:last-child { border-bottom: none; }
+    #mob-menu a:hover { color: var(--gold); background: rgba(201,168,76,0.04); }
+    #mob-menu .btn-gold { color: var(--bg); background: var(--gold); margin: 1rem 2.5rem 0; border-radius: var(--r); border-bottom: none; text-align: center; }
+
+    /* CONTENU */
+    .page-wrap {
+      max-width: 800px; margin: 0 auto;
+      padding: calc(var(--nav-h) + 4rem) 2rem 5rem;
+    }
+
+    .page-title {
+      font-family: var(--fd); font-size: 1.8rem; font-weight: 700;
+      color: var(--cream); letter-spacing: .06em;
+      margin-bottom: .5rem;
+    }
+
+    .page-subtitle {
+      font-size: .8rem; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 3rem;
+    }
+
+    .gold-line { width: 48px; height: 1px; background: var(--gold); margin: 1rem 0 3rem; }
+
+    .ml-section { margin-bottom: 2.5rem; }
+
+    .ml-section h2 {
+      font-family: var(--fd); font-size: .95rem; font-weight: 600;
+      color: var(--gold); letter-spacing: .12em; text-transform: uppercase;
+      margin-bottom: 1.2rem; padding-bottom: .6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ml-section p { font-size: .9rem; color: var(--text); margin-bottom: .6rem; line-height: 1.8; }
+
+    .ml-table { width: 100%; border-collapse: collapse; font-size: .88rem; margin-bottom: .5rem; }
+    .ml-table tr { border-bottom: 1px solid var(--border); }
+    .ml-table tr:last-child { border-bottom: none; }
+    .ml-table td { padding: .7rem .5rem; vertical-align: top; }
+    .ml-table td:first-child { color: var(--text-muted); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; width: 40%; padding-right: 1rem; }
+    .ml-table td:last-child { color: var(--cream); font-weight: 500; }
+
+    /* FOOTER */
+    #footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2rem; }
+    .foot-wrap { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .foot-logo { height: 38px; }
+    .foot-txt { font-size: .75rem; color: var(--text-muted); text-align: center; }
+    .foot-links { display: flex; gap: 1.5rem; }
+    .foot-links a { font-size: .75rem; color: var(--text-muted); transition: color var(--ease); }
+    .foot-links a:hover { color: var(--gold); }
+
+    @media(max-width: 768px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .page-title { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="nav">
+  <div class="nav-wrap">
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="index.html#services">Prestations</a></li>
+      <li><a href="index.html#avis">Avis clients</a></li>
+      <li><a href="index.html#contact">Horaires</a></li>
+      <li><a href="contact.html">Nous contacter</a></li>
+      <li><a href="tel:+33695590093" class="nav-cta" style="display:inline-flex;align-items:center;gap:.45rem;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 12 19.79 19.79 0 011.92 3.47 2 2 0 013.9 1.27h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9a16 16 0 006.29 6.29l.38-.67a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Appeler
+      </a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mob-menu">
+  <a href="index.html" onclick="closeMob()">Accueil</a>
+  <a href="index.html#services" onclick="closeMob()">Prestations</a>
+  <a href="index.html#avis" onclick="closeMob()">Avis clients</a>
+  <a href="index.html#contact" onclick="closeMob()">Horaires & Contact</a>
+  <a href="contact.html" onclick="closeMob()">Nous contacter</a>
+  <a href="tel:+33695590093" class="btn-gold" onclick="closeMob()">Appeler maintenant</a>
+</div>
+
+<!-- CONTENU -->
+<div class="page-wrap">
+
+  <h1 class="page-title">Mentions légales</h1>
+  <p class="page-subtitle">Conformément à la loi LCEN du 21 juin 2004</p>
+  <div class="gold-line"></div>
+
+  <!-- ÉDITEUR -->
+  <div class="ml-section">
+    <h2>Éditeur du site</h2>
+    <table class="ml-table">
+      <tr><td>Raison sociale</td><td>AUTOREPAR</td></tr>
+      <tr><td>Forme juridique</td><td>Société par actions simplifiée (SAS)</td></tr>
+      <tr><td>Capital social</td><td>1 000,00 €</td></tr>
+      <tr><td>Siège social</td><td>41B Rue André Fruchard, 54320 Maxéville, France</td></tr>
+      <tr><td>SIRET</td><td>911 691 681 00017</td></tr>
+      <tr><td>SIREN</td><td>911 691 681</td></tr>
+      <tr><td>RCS</td><td>Nancy B 911 691 681</td></tr>
+      <tr><td>N° TVA intracommunautaire</td><td>FR05911691681</td></tr>
+      <tr><td>Dirigeant</td><td>Armen MOVSISYAN</td></tr>
+      <tr><td>Téléphone</td><td><a href="tel:+33695590093">06 95 59 00 93</a></td></tr>
+    </table>
+  </div>
+
+  <!-- HÉBERGEUR -->
+  <div class="ml-section">
+    <h2>Hébergeur</h2>
+    <table class="ml-table">
+      <tr><td>Société</td><td>Vercel Inc.</td></tr>
+      <tr><td>Adresse</td><td>340 Pine Street, Suite 701, San Francisco, CA 94104, États-Unis</td></tr>
+      <tr><td>Site web</td><td><a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a></td></tr>
+    </table>
+  </div>
+
+  <!-- PROPRIÉTÉ INTELLECTUELLE -->
+  <div class="ml-section">
+    <h2>Propriété intellectuelle</h2>
+    <p>L'ensemble du contenu de ce site (textes, images, logo, design) est la propriété exclusive d'AUTOREPAR ou de ses ayants droit et est protégé par les lois françaises et internationales relatives à la propriété intellectuelle.</p>
+    <p>Toute reproduction, représentation, modification ou exploitation partielle ou totale sans autorisation préalable écrite est interdite.</p>
+  </div>
+
+  <!-- DONNÉES PERSONNELLES -->
+  <div class="ml-section">
+    <h2>Données personnelles</h2>
+    <p>Ce site ne collecte aucune donnée personnelle via des formulaires enregistrés sur nos serveurs. Le formulaire de contact redirige directement vers WhatsApp sans stockage de données de notre côté.</p>
+    <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ce droit, contactez-nous au <a href="tel:+33695590093">06 95 59 00 93</a>.</p>
+  </div>
+
+  <!-- COOKIES -->
+  <div class="ml-section">
+    <h2>Cookies</h2>
+    <p>Ce site utilise uniquement le <strong>localStorage</strong> du navigateur pour mémoriser temporairement les champs du formulaire de contact afin d'améliorer votre expérience. Ces données restent sur votre appareil et ne sont jamais transmises à nos serveurs.</p>
+    <p>Aucun cookie publicitaire ou de tracking tiers n'est utilisé sur ce site.</p>
+  </div>
+
+  <!-- RESPONSABILITÉ -->
+  <div class="ml-section">
+    <h2>Limitation de responsabilité</h2>
+    <p>AUTOREPAR s'efforce de maintenir les informations de ce site à jour et exactes. Toutefois, nous ne pouvons garantir l'exactitude, la complétude ou l'actualité des informations diffusées. AUTOREPAR décline toute responsabilité pour tout dommage résultant de l'utilisation de ce site.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="foot-wrap">
+    <img src="logo-transparent.webp" alt="AutoRepar" class="foot-logo">
+    <p class="foot-txt">© 2026 AUTOREPAR SAS — Tous droits réservés</p>
+    <div class="foot-links">
+      <a href="mentions-legales.html">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('burger').addEventListener('click', () => {
+    document.getElementById('mob-menu').classList.toggle('open');
+  });
+  function closeMob() { document.getElementById('mob-menu').classList.remove('open'); }
+</script>
+</body>
+</html>
